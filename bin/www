@@ -4,9 +4,8 @@
  * Module dependencies.
  */
 
-
 var app = require('../app');
-var debug = require('debug')('topsecret:server');
+var debug = require('debug')('midnightclub:server');
 var http = require('http');
 
 /**
