@@ -21,7 +21,7 @@ router.get('/gt-r32', function(req, res, next) {
     picture: "images/R-32.jpg",
     desc: "Компания Top Secret Japan, показала восстановленный R32, на шикарных дисках и с обвесом. Диффузоры, карнары, множество карбона и олдскульный вид не испорчен!."
   })
-  res.send("<h2>About Nissan GT-R R32</h2>")
+  res.send("<h1>About Nissan GT-R R32</h1>")
 });
 /* Страница  */
 router.get('/gt-r33', function(req, res, next) {
@@ -30,7 +30,7 @@ router.get('/gt-r33', function(req, res, next) {
     picture: "images/R-33.jpg",
     desc: "Компания Top Secret Japan показала GT-R R33 цвета шампанского, на шикарных дисках и с обвесом, ~1200 лошадинных сил под капотом."
   })
-  res.send("<h3>About Nissan GT-R R33</h3>")
+  res.send("<h1>About Nissan GT-R R33</h1>")
 });
 
 module.exports = router;
