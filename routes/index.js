@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var Car = require("../models/car").Car
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,7 +12,7 @@ router.get('/supraa80', function(req, res, next) {
   res.render('car', {
     title: "Toyota Supra A80",
     picture: "images/SupraA80.jpg",
-    desc: "Top Secret Japan представила нам Toyota Supra.A70 цвета шампанского, ставшего уже легендарным. Мощность выше 1000 лошадинных сил на 1500 об/мин.На автомагистрали А1 гонщик мчал со скоростью 317 км/ч (197 миль в час)"
+    desc: "Top Secret Japan представила нам Toyota Supra.A80 цвета шампанского, ставшего уже легендарным. Мощность выше 1000 лошадинных сил на 1500 об/мин.На автомагистрали А1 гонщик мчал со скоростью 317 км/ч (197 миль в час)"
   })
   res.send("<h1>About Supra A80</h1>")
 });
