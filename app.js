@@ -33,6 +33,11 @@ app.use(session({
   saveUninitialized: true	,
   store: MongoStore.create({mongoUrl: 'mongodb://127.0.0.1:27017/topsecret'})
 }))
+app.use(function(req,res,next){
+  req.session.counter = req.session.counter +1 || 1
+  next()
+})
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -54,7 +59,8 @@ app.use(function(err, req, res, next) {
   res.render('error',
   {
     picture: "../images/error.png",
-    title: 'Ошибка, проверьте правильность введённых данных.'
+    title: 'Ошибка, проверьте правильность введённых данных.',
+    menu: []
   });
 });
 

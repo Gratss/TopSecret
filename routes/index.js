@@ -18,9 +18,13 @@ router.get('/', function(req, res, next) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    req.session.greeting = "Helllooo!!!"
-    res.render('index', { title: 'Express', menu:menu });
+    res.render('index', { 
+    title: 'Express',
+    menu:menu,
+    counter:req.session.counter 
 });
+});
+
 
 
 
