@@ -3,11 +3,21 @@ var router = express.Router();
 var Car = require("../models/car").Car
 
 
-/* GET home page. */
+router.get('/', function(req, res, next) {
+  Car.find({},{_id:0,title:1,nick:1},function(err,menu){
+      res.render('index', {
+                              title: 'Express',
+                              menu: menu
+                          });
+  })
+
+});
+/* GET home page. 
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-/* Страница Supra a80 */
+/*
+/* Страница Supra a80 
 router.get('/supraa80', function(req, res, next) {
   res.render('car', {
     title: "Toyota Supra A80",
@@ -16,7 +26,7 @@ router.get('/supraa80', function(req, res, next) {
   })
   res.send("<h1>About Supra A80</h1>")
 });
-/* Страница Nissan  */
+/* Страница Nissan  
 router.get('/gt-r32', function(req, res, next) {
   res.render('car', {
     title: "GT-R R32",
@@ -25,7 +35,7 @@ router.get('/gt-r32', function(req, res, next) {
   })
   res.send("<h1>About Nissan GT-R R32</h1>")
 });
-/* Страница  */
+/* Страница  
 router.get('/gt-r33', function(req, res, next) {
   res.render('car', {
     title: "GT-R R33",
@@ -34,5 +44,5 @@ router.get('/gt-r33', function(req, res, next) {
   })
   res.send("<h1>About Nissan GT-R R33</h1>")
 });
-
+*/
 module.exports = router;

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,19 +17,16 @@
     <li class="nav-item">
     <a class="nav-link" href="/">Главная</a>
     </li>
-    <li class="nav-item">
-    <a class="nav-link" href="/cars/supraA80">SupraA80</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link" href="/cars/gtr32">Nissan GT-R R32</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link" href="/cars/gtr33">Nissan GT-R</a>
-    </li>
     </ul>
+    <% menu.forEach(function(car){ %>
+        <li class="nav-item">
+        <a class="nav-link" href="/cars/<%=car.nick%>">
+            <%=car.title%> </a>
+        </li>
+        <% }) %>
     <ul class="navbar-nav navbar-right">
     <li>
-    <a class="nav-link" href="/logreg">Войти</a>
+    <a class="nav-link" href="/logreg">Log In</a>
     </li>
     </ul>
     </div>
