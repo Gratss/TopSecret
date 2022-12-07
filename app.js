@@ -1,3 +1,4 @@
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -5,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose')
 mongoose.connect('mongodb://127.0.0.1:27017/topsecret')
+var session = require("express-session")
 var cars = require('./routes/cars');
 
 var indexRouter = require('./routes/index');
@@ -22,6 +24,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: "Jdm",
+  cookie:{maxAge:60*1000},
+  resave: true,
+  saveUninitialized: true	
+}))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -43,7 +52,7 @@ app.use(function(err, req, res, next) {
   res.render('error',
   {
     picture: "../images/error.png",
-    title: 'Ошибка, проверьте корректность введённых данных.'
+    title: 'Ошибка, проверьте правильность введённых данных.'
   });
 });
 
