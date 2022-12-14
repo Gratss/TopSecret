@@ -1,28 +1,34 @@
-var express = require('express')
-var router = express.Router()
+
+var express = require('express');
+var router = express.Router();
 var Car = require("../models/car").Car
 
 
-
-
-router.get('/', function(req, res, next) {
-    Car.find({},{_id:0,title:1,nick:1},function(err,menu){
-        req.session.greeting = "Session started"
-        res.render('index', {
-                                title: 'TopSecret',
-                                counter: req.session.counter
-                            });
-    })
+/* GET home page. */
+router.get('/', function (req, res, next) {
+  Car.find({}, { _id: 0, title: 1, nick: 1 }, function (err, menu) {
+    req.session.greeting = "HelllllllllloWorld!",
+      res.cookie('greeting', 'HellllllllloWorld!').render('index', {
+        title: 'Express',
+        menu: menu,
+        counter:req.session.counter
+      });
+  })
 
 });
 
 /* GET login/registration page. */
 router.get('/logreg', function(req, res, next) {
-    res.render('logreg',{title: 'Вход'});
-    });
-    
+  res.render('logreg',{title: 'Вход'});
+  });
 
-module.exports = router;
+  /* POST login/registration page. */
+router.post('/logreg', function (req, res, next) {
+  var username = req.body.username
+  var password = req.body.password
+});
+
+module.exports = router;;
 /* GET home page. 
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
