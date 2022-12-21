@@ -10,11 +10,14 @@ router.get('/', function (req, res, next) {
     req.session.greeting = "HelllllllllllloWorld!",
       res.cookie('greeting', 'HelllllllllloWorld!').render('index', {
         title: 'Express',
-        menu: menu,
         counter:req.session.counter
       });
   })
 
+});
+/* GET auth page. */
+router.get('/logreg', function (req, res, next) {
+  res.render('logreg', { error: null });
 });
 
 /* GET login/registration page. */
