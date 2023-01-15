@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../mySQLConnect.js');
 //var Car = require("../models/car").Car
-//var checkAuth = require("./../middleware/checkAuth.js");
+var checkAuth = require("./../middleware/checkAuth.js");
 // var async = require("async")
 
 /* GET users listing. */
